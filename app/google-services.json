@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "525970850397",
+    "firebase_url": "https://dictionary-13ba6.firebaseio.com",
+    "project_id": "dictionary-13ba6",
+    "storage_bucket": "dictionary-13ba6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525970850397:android:01c8d7f9d245973b",
+        "android_client_info": {
+          "package_name": "com.mywings.dictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525970850397-2uj3nm96erpn4q6lnsone5sotd8d9cu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mywings.dictionary",
+            "certificate_hash": "e268c934299892814b393baddb26bcbd55ac8b11"
+          }
+        },
+        {
+          "client_id": "525970850397-sc904hnliakrehkbd8hnk2rdrm8lumtu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJbiSLsLbliOo-_Gs8oZE7X84Ls9Ze-HU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525970850397-sc904hnliakrehkbd8hnk2rdrm8lumtu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
