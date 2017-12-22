@@ -5,14 +5,13 @@ import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_dictionary_screen.*
 import kotlinx.android.synthetic.main.app_bar_dictionary_screen.*
 import kotlinx.android.synthetic.main.content_dictionary_screen.*
 
-class DictionaryScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class DictionaryScreen : DictionaryCompactActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

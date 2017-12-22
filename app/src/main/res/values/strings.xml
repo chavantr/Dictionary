@@ -15,5 +15,6 @@
     <string name="all_words">All Words</string>
     <string name="favorites">Favorites</string>
     <string name="recent">Recent</string>
+    <string name="title_activity_registration_screen">Sign Up</string>
 
 </resources>

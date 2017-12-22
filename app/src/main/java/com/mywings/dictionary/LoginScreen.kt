@@ -2,7 +2,6 @@ package com.mywings.dictionary
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -20,7 +19,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import kotlinx.android.synthetic.main.content_login_screen.*
 
-class LoginScreen : AppCompatActivity() {
+class LoginScreen : DictionaryCompactActivity() {
 
     //region Field Declaration
     private var callbackManager: CallbackManager? = null
