@@ -1,5 +1,6 @@
 package com.mywings.dictionary
 
+import android.app.Activity
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
@@ -13,6 +14,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.facebook.CallbackManager
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -30,8 +32,7 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
     }
 
     override fun getGoogleSignInClient(): GoogleSignInClient? {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
-        return GoogleSignIn.getClient(this, gso)
+        return GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build())
     }
 
     override fun getFacebookCallbackManager(): CallbackManager? {
@@ -44,6 +45,10 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
 
     override fun signOut() {
         getSocialInstance()!!.signOut()
+    }
+
+    override fun getFacebookReadPermission(activity: Activity?) {
+        LoginManager.getInstance().logInWithReadPermissions(activity, PERMISSION)
     }
 
 
@@ -99,6 +104,4 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
         val EMAIL = "email"
         val PERMISSION = mutableListOf(PUBLIC_PROFILE, EMAIL)
     }
-
-
 }

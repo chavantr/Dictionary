@@ -10,11 +10,8 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import kotlinx.android.synthetic.main.content_login_screen.*
@@ -23,9 +20,6 @@ class LoginScreen : DictionaryCompactActivity() {
 
     //region Field Declaration
     private var callbackManager: CallbackManager? = null
-    private val permission: List<String> = mutableListOf("public_profile", "email")
-    private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private lateinit var mFirebaseAuth: FirebaseAuth
     //endregion Field Declaration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,22 +27,21 @@ class LoginScreen : DictionaryCompactActivity() {
         FacebookSdk.sdkInitialize(applicationContext)
         setContentView(R.layout.activity_login_screen)
         setSupportActionBar(toolbar)
-        mFirebaseAuth = this.getSocialInstance()!!
-        if (null != mFirebaseAuth.currentUser) {
+        if (null != getCurrentUser()) {
             val intent = Intent(this@LoginScreen, DictionaryScreen::class.java)
             startActivity(intent)
             return
         }
-        callbackManager = CallbackManager.Factory.create()
-        btnFacebookSignIn.setReadPermissions(permission)
-        btnFacebookSignIn.registerCallback(callbackManager!!, facebookCallback)
+
+        btnFacebookSignIn.setReadPermissions(PERMISSION)
+        btnFacebookSignIn.registerCallback(getFacebookCallbackManager()!!, facebookCallback)
         btnFacebookSignIn.setOnClickListener({
-            LoginManager.getInstance().logInWithReadPermissions(this@LoginScreen, permission)
+            getFacebookReadPermission(this@LoginScreen)
         })
+
         btnGoogleSignIn.setOnClickListener({ signInWithGoogle() })
+
         LoginManager.getInstance().registerCallback(callbackManager, facebookCallback)
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         btnSignUp.setOnClickListener({
             val intentRegistration = Intent(this@LoginScreen, RegistrationScreen::class.java)
@@ -59,16 +52,12 @@ class LoginScreen : DictionaryCompactActivity() {
 
     private var facebookCallback: FacebookCallback<LoginResult> = object : FacebookCallback<LoginResult> {
         override fun onCancel() {
-
         }
 
         override fun onError(error: FacebookException?) {
-
         }
 
         override fun onSuccess(result: LoginResult?) {
-
-
         }
 
     }
@@ -92,19 +81,18 @@ class LoginScreen : DictionaryCompactActivity() {
                 }
             }
             RESULT_CANCELED -> {
-
             }
         }
     }
 
     private fun signInWithGoogle() {
-        val intent = mGoogleSignInClient.signInIntent
+        val intent = getGoogleSignInClient()!!.signInIntent
         startActivityForResult(intent, GOOGLE_SIGN_IN)
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-        mFirebaseAuth.signInWithCredential(credential)
+        getSocialInstance()!!.signInWithCredential(credential)
                 .addOnCompleteListener(this, googleCallback)
     }
 
