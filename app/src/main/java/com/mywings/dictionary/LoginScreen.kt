@@ -33,7 +33,7 @@ class LoginScreen : DictionaryCompactActivity() {
         FacebookSdk.sdkInitialize(applicationContext)
         setContentView(R.layout.activity_login_screen)
         setSupportActionBar(toolbar)
-        mFirebaseAuth = FirebaseAuth.getInstance()
+        mFirebaseAuth = this.getSocialInstance()!!
         if (null != mFirebaseAuth.currentUser) {
             val intent = Intent(this@LoginScreen, DictionaryScreen::class.java)
             startActivity(intent)
@@ -49,6 +49,11 @@ class LoginScreen : DictionaryCompactActivity() {
         LoginManager.getInstance().registerCallback(callbackManager, facebookCallback)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        btnSignUp.setOnClickListener({
+            val intentRegistration = Intent(this@LoginScreen, RegistrationScreen::class.java)
+            startActivity(intentRegistration)
+        })
     }
 
 
@@ -76,11 +81,18 @@ class LoginScreen : DictionaryCompactActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            GOOGLE_SIGN_IN -> {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(data!!)
-                val account: GoogleSignInAccount? = task.result
-                firebaseAuthWithGoogle(account!!)
+        when (resultCode) {
+            RESULT_OK -> {
+                when (requestCode) {
+                    GOOGLE_SIGN_IN -> {
+                        val task = GoogleSignIn.getSignedInAccountFromIntent(data!!)
+                        val account: GoogleSignInAccount? = task.result
+                        firebaseAuthWithGoogle(account!!)
+                    }
+                }
+            }
+            RESULT_CANCELED -> {
+
             }
         }
     }
