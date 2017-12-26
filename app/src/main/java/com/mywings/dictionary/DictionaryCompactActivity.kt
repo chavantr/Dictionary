@@ -67,7 +67,9 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
     }
 
     override fun hide(view: View?) {
+
         inputMethodManger()!!.hideSoftInputFromInputMethod(view!!.applicationWindowToken, InputMethodManager.HIDE_IMPLICIT_ONLY)
+
     }
 
     private fun inputMethodManger(): InputMethodManager? {

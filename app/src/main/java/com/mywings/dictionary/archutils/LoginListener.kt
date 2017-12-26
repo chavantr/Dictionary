@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseUser
 
 interface LoginListener {
 
+
     fun getSocialInstance(): FirebaseAuth?
 
     fun getGoogleSignInClient(): GoogleSignInClient?
@@ -18,6 +19,7 @@ interface LoginListener {
     fun getCurrentUser(): FirebaseUser?
 
     fun signOut()
+
 
     fun getFacebookReadPermission(activity: Activity?)
 

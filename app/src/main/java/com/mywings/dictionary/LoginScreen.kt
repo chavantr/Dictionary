@@ -2,7 +2,6 @@ package com.mywings.dictionary
 
 import android.content.Intent
 import android.os.Bundle
-import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.FacebookSdk
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.content_login_screen.*
 class LoginScreen : DictionaryCompactActivity() {
 
     //region Field Declaration
-    private var callbackManager: CallbackManager? = null
+
     //endregion Field Declaration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +40,7 @@ class LoginScreen : DictionaryCompactActivity() {
 
         btnGoogleSignIn.setOnClickListener({ signInWithGoogle() })
 
-        LoginManager.getInstance().registerCallback(callbackManager, facebookCallback)
+        LoginManager.getInstance().registerCallback(getFacebookCallbackManager(), facebookCallback)
 
         btnSignUp.setOnClickListener({
             val intentRegistration = Intent(this@LoginScreen, RegistrationScreen::class.java)
@@ -64,7 +63,9 @@ class LoginScreen : DictionaryCompactActivity() {
 
     private var googleCallback: OnCompleteListener<AuthResult> = OnCompleteListener { task ->
         if (task.isSuccessful) {
+
         } else {
+
         }
     }
 
