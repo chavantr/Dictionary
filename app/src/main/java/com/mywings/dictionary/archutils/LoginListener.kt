@@ -20,7 +20,6 @@ interface LoginListener {
 
     fun signOut()
 
-
     fun getFacebookReadPermission(activity: Activity?)
 
 }
