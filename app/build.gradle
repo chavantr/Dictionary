@@ -24,6 +24,8 @@ android {
         }
     }
     productFlavors {
+
+
     }
 
     dataBinding {
