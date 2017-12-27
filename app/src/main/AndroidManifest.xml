@@ -15,7 +15,7 @@
         <activity
             android:name=".DictionaryScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginScreen"
             android:label="@string/title_activity_login_screen"
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -49,13 +50,8 @@
         </activity>
         <activity
             android:name=".RegistrationScreen"
-            android:label="@string/title_activity_registration_screen"
-            android:parentActivityName=".LoginScreen"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mywings.dictionary.LoginScreen" />
-        </activity>
+            android:label="@string/sign_up" />
+
     </application>
 
 </manifest>

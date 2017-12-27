@@ -29,6 +29,7 @@ class DictionaryScreen : DictionaryCompactActivity(), NavigationView.OnNavigatio
         navigation.setOnNavigationItemSelectedListener(navigationHome)
     }
 
+
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -36,6 +37,7 @@ class DictionaryScreen : DictionaryCompactActivity(), NavigationView.OnNavigatio
             super.onBackPressed()
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 

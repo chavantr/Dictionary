@@ -14,14 +14,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilFirstName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tilLastName"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -31,6 +33,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/enter_first_name"
+                    android:imeOptions="flagNoExtractUi"
                     android:maxLines="1" />
 
 
@@ -39,14 +42,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilLastName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilFirstName">
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tilFirstName"
+                app:layout_constraintTop_toTopOf="parent">
 
 
                 <android.support.design.widget.TextInputEditText
@@ -55,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/enter_last_name"
+                    android:imeOptions="flagNoExtractUi"
                     android:maxLines="1" />
 
 
@@ -63,14 +68,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilEmail"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tilPhone"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilLastName">
+                app:layout_constraintTop_toBottomOf="@id/tilFirstName">
 
 
                 <android.support.design.widget.TextInputEditText
@@ -79,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/enter_email"
+                    android:imeOptions="flagNoExtractUi"
                     android:inputType="textEmailAddress"
                     android:maxLines="1" />
 
@@ -87,14 +94,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilPhone"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tilEmail"
+                app:layout_constraintTop_toBottomOf="@id/tilLastName">
 
 
                 <android.support.design.widget.TextInputEditText
@@ -103,6 +111,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/enter_mobile_number"
+                    android:imeOptions="flagNoExtractUi"
                     android:inputType="number"
                     android:maxLines="1" />
 
@@ -111,14 +120,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilGender"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tilDob"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilPhone">
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail">
 
 
                 <android.support.design.widget.TextInputEditText
@@ -128,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/select_gender"
+                    android:imeOptions="flagNoExtractUi"
                     android:maxLines="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -136,14 +147,16 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilDob"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilGender">
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tilGender"
+                app:layout_constraintTop_toBottomOf="@+id/tilPhone">
 
 
                 <android.support.design.widget.TextInputEditText
@@ -153,6 +166,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/select_date_of_birth"
+                    android:imeOptions="flagNoExtractUi"
                     android:maxLines="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -161,14 +175,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilPassword"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tilConfirmPassword"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilDob"
+                app:layout_constraintTop_toBottomOf="@id/tilGender"
                 app:passwordToggleEnabled="true">
 
 
@@ -178,6 +193,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/enter_password"
+                    android:imeOptions="flagNoExtractUi"
                     android:inputType="textPassword"
                     android:maxLines="1" />
 
@@ -187,14 +203,15 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilConfirmPassword"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tilPassword"
+                app:layout_constraintTop_toBottomOf="@id/tilDob"
                 app:passwordToggleEnabled="true">
 
 
@@ -204,6 +221,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscondensedmedium"
                     android:hint="@string/confirm_password"
+                    android:imeOptions="flagNoExtractUi"
                     android:inputType="textPassword"
                     android:maxLines="1" />
 
@@ -217,14 +235,14 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/notosanscondensedmedium"
                 android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnSignUp"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tilConfirmPassword" />
+                app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
 
             <Button
@@ -234,7 +252,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/notosanscondensedmedium"
                 android:text="@string/sign_up"
                 app:layout_constraintBottom_toBottomOf="parent"
