@@ -42,6 +42,9 @@ class DictionaryScreen : DictionaryCompactActivity(), NavigationView.OnNavigatio
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         menuInflater.inflate(R.menu.dictionary_screen, menu)
+
+        signOut()
+
         return true
     }
 
