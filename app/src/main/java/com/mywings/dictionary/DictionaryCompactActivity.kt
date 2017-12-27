@@ -51,21 +51,6 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
         LoginManager.getInstance().logInWithReadPermissions(activity, PERMISSION)
     }
 
-
-    override fun <T : ViewDataBinding> inflate(id: Int): ViewDataBinding {
-        return DataBindingUtil.inflate(inflate(), id, getGroup(), false)
-    }
-
-    override fun <T : ViewDataBinding> attach(id: Int): ViewDataBinding {
-        return DataBindingUtil.inflate(inflate(), id, getGroup(), true)
-    }
-
-    override fun getLayoutManager(flow: Int): RecyclerView.LayoutManager {
-        val linearLayoutManager = LinearLayoutManager(applicationContext)
-        linearLayoutManager.orientation = flow
-        return linearLayoutManager
-    }
-
     override fun hide(view: View?) {
 
         inputMethodManger()!!.hideSoftInputFromInputMethod(view!!.applicationWindowToken, InputMethodManager.HIDE_IMPLICIT_ONLY)
@@ -77,13 +62,6 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
         return inputMethodManager
     }
 
-    override fun inflate(): LayoutInflater {
-        return LayoutInflater.from(this)
-    }
-
-    override fun <T : ViewDataBinding> setContentLayout(id: Int): ViewDataBinding {
-        return DataBindingUtil.setContentView(this, id)
-    }
 
     override fun show(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
@@ -99,6 +77,28 @@ abstract class DictionaryCompactActivity : AppCompatActivity(), LoginListener, O
 
     override fun getGroup(): ViewGroup {
         return this.findViewById(android.R.id.content)
+    }
+
+    override fun <T : ViewDataBinding> attach(id: Int): T {
+        return DataBindingUtil.inflate(inflate(), id, getGroup(), true)
+    }
+
+    override fun getLayoutManager(flow: Int): RecyclerView.LayoutManager {
+        val linearLayoutManager = LinearLayoutManager(applicationContext)
+        linearLayoutManager.orientation = flow
+        return linearLayoutManager
+    }
+
+    override fun inflate(): LayoutInflater {
+        return LayoutInflater.from(this)
+    }
+
+    override fun <T : ViewDataBinding> inflate(id: Int): T {
+        return DataBindingUtil.inflate(inflate(), id, getGroup(), false)
+    }
+
+    override fun <T : ViewDataBinding> setContentLayout(id: Int): T {
+        return DataBindingUtil.setContentView(this, id)
     }
 
     companion object {

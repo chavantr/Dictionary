@@ -27,8 +27,7 @@ class LoginScreen : DictionaryCompactActivity() {
         setContentView(R.layout.activity_login_screen)
         setSupportActionBar(toolbar)
         if (null != getCurrentUser()) {
-            val intent = Intent(this@LoginScreen, DictionaryScreen::class.java)
-            startActivity(intent)
+            navigateToDictionary()
             return
         }
 
@@ -48,6 +47,11 @@ class LoginScreen : DictionaryCompactActivity() {
         })
     }
 
+    private fun navigateToDictionary() {
+        val intent = Intent(this@LoginScreen, DictionaryScreen::class.java)
+        startActivity(intent)
+    }
+
 
     private var facebookCallback: FacebookCallback<LoginResult> = object : FacebookCallback<LoginResult> {
         override fun onCancel() {
@@ -63,7 +67,7 @@ class LoginScreen : DictionaryCompactActivity() {
 
     private var googleCallback: OnCompleteListener<AuthResult> = OnCompleteListener { task ->
         if (task.isSuccessful) {
-
+            navigateToDictionary()
         } else {
 
         }

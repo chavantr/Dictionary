@@ -38,15 +38,22 @@ class DictionaryScreen : DictionaryCompactActivity(), NavigationView.OnNavigatio
         }
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         menuInflater.inflate(R.menu.dictionary_screen, menu)
+
+
+
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                signOut()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

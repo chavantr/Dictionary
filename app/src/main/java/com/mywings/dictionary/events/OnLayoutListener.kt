@@ -13,13 +13,12 @@ interface OnLayoutListener {
 
     fun inflate(): LayoutInflater
 
-    fun <T : ViewDataBinding> inflate(id: Int): ViewDataBinding
+    fun <T : ViewDataBinding> inflate(id: Int): T
 
-    fun <T : ViewDataBinding> attach(id: Int): ViewDataBinding
+    fun <T : ViewDataBinding> attach(id: Int): T
 
-    fun <T : ViewDataBinding> setContentLayout(id: Int): ViewDataBinding
+    fun <T : ViewDataBinding> setContentLayout(id: Int): T
 
     fun getLayoutManager(flow: Int): RecyclerView.LayoutManager
-
 
 }
