@@ -15,9 +15,9 @@ class SQLiteAssetHelper(context: Context?, name: String?, factory: SQLiteDatabas
 
     //region Field Declaration
     private lateinit var mUpgradePathFormat: String
-    private lateinit var mContext: Context
-    private lateinit var mName: String
-    private lateinit var mFactory: SQLiteDatabase.CursorFactory
+    private var mContext: Context
+    private var mName: String
+    private var mFactory: SQLiteDatabase.CursorFactory
     private var mNewVersion: Int? = null
     private lateinit var mDatabase: SQLiteDatabase
     private var mIsInitializing: Boolean = false
@@ -27,6 +27,15 @@ class SQLiteAssetHelper(context: Context?, name: String?, factory: SQLiteDatabas
     //endregion Field Declaration
 
     init {
+        if (version < 0) throw IllegalArgumentException("Version must be >= 1, was version $version")
+        if (null == name) throw IllegalArgumentException("Database name cannot be null")
+        mContext = context!!
+        mName = name
+        mFactory = factory!!
+        mNewVersion = version
+        mArchivePath = name + ".zip"
+
+
     }
 
 
